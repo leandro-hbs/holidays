@@ -57,11 +57,12 @@ class Feriados {
     }
 
     howDays(id){
-        if (this.dataAtual.getTime() > this.feriados.get(id).getTime()){
-            let diff = Math.ceil(Math.abs(this.dataAtual.getTime() - this.feriados.get(id).getTime()) / (1000 * 3600 * 24));
+        let diff = Math.ceil(Math.abs(this.dataAtual.getTime() - this.feriados.get(id).getTime()) / (1000 * 3600 * 24));
+        if (diff == 0){
+            this.titulo.innerHTML = `Hoje é o ${id}`;
+        }else if (this.dataAtual.getTime() > this.feriados.get(id).getTime()){
             this.titulo.innerHTML = `Já se passaram ${diff} dia(s) desde o ${id}`;
-        } else {
-            let diff = Math.ceil(Math.abs(this.dataAtual.getTime() - this.feriados.get(id).getTime()) / (1000 * 3600 * 24));
+        }else {
             this.titulo.innerHTML = `Ainda faltam ${diff} dia(s) para o ${id}`;
         }
     }
