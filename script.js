@@ -1,3 +1,4 @@
+// Função para calcular que dia cai a pascoa
 function pascoaDay() {
     let dataAtual = new Date();
     let ano = dataAtual.getFullYear();
@@ -14,7 +15,9 @@ function pascoaDay() {
     return resultado;
 }
 
+// Classe de controle para montar o html e fazer alterações dinâmicas
 class Feriados {
+    // Função que busca os IDs html e cria um dicionário com todos os feriados do ano 
     constructor(){
         this.titulo = document.getElementById('titulo');
         this.tabela = document.getElementById('feriados');
@@ -35,6 +38,7 @@ class Feriados {
         this.feriados.set('Natal', new Date('12/25/'+ano));
     }
 
+    // Função que monta a tabela com os feriados
     showHolidays(){
         let rows = "";
         let next = 0;
@@ -56,6 +60,7 @@ class Feriados {
         this.tabela.innerHTML += rows;
     }
 
+    // Função que calcula quantos dias faltam ou passaram do feriado selecionado
     howDays(id){
         let diff = Math.ceil(Math.abs(this.dataAtual.getTime() - this.feriados.get(id).getTime()) / (1000 * 3600 * 24));
         if (diff == 0){
@@ -71,6 +76,7 @@ class Feriados {
 let DADOS = new Feriados();
 DADOS.showHolidays();
 
+// Função que chama a função com a chave do botão
 function info(key) {
     DADOS.howDays(key);
 }

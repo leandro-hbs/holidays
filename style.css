@@ -6,7 +6,7 @@ h3 {
 
 .table {
     border: 2px solid rgb(0, 0, 0) !important;
-    width: 75% !important; /*Importante manter o !important rs */
+    width: 75% !important;
     margin: auto;
     margin-top: 25px;
 }
@@ -21,7 +21,7 @@ h3 {
     vertical-align: middle;
 }
 
-.thead {
+thead {
     background-color: rgb(0, 255, 255);
 }
 
